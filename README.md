@@ -58,7 +58,7 @@ document.addEventListener("deviceready", function(){
 <h3>More API options:</h3>
 
 <h5>Magstripe:</h5>
-* You need to "activate" the reader, by calling `window.magstripe.read(function(){/*log success*/})` when you need to read a barcode (for instance, on a checkout page)
+* You need to "activate" the reader, by calling `window.magstripe.read(function(){/*log success*/})` when you need to read a credit card (for instance, on a checkout page).  A succcessful read will call your registration callback.
 
 <h5>Scanner:</h5>
 * You can wire a soft button to the barcode scanner by calling `window.barcodeScanner.softScanOn(function(){ /*log success*/})`
