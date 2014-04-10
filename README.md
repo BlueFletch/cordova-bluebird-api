@@ -11,7 +11,7 @@ This plugin is compatible with plugman.  To install, run the following from your
 
 ==============
 
-To Use:
+<h3>To Use:</h3>
 You'll register a callback which will be called when a successful "read" event occurs on the scanner or magstripe reader.  
 
 ```
@@ -55,12 +55,12 @@ document.addEventListener("deviceready", function(){
 ```
 
 =============
-More API options:
+<h3>More API options:</h3>
 
-Magstripe:
+<h5>Magstripe:</h5>
 * You need to "activate" the reader, by calling `window.magstripe.read(function(){/*log success*/})` when you need to read a barcode (for instance, on a checkout page)
 
-Scanner:
+<h5>Scanner:</h5>
 * You can wire a soft button to the barcode scanner by calling `window.barcodeScanner.softScanOn(function(){ /*log success*/})`
 * Turn off the scanner manually using: `window.barcodeScanner.softScanOff(function(){ /*log success*/})`
 
