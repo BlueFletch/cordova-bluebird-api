@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://cordova.apache.org/ns/plugins/1.0"
+           id="com.bluefletch.bluebird"
+      version="0.1.0">
+    <name>Bluebird</name>
+
+
+    <js-module src="www/barcodescanner.js" name="BarcodeScanner">
+        <clobbers target="barcodeScanner" />
+    </js-module>
+    <js-module src="www/magstripe.js" name="MagStripeReader">
+        <clobbers target="magstripe" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="BarcodeScanner" >
+                <param name="android-package" value="com.bluefletch.bluebird.plugin.BarcodeScannerPlugin"/>
+            </feature>
+            <feature name="MagStripeReader" >
+                <param name="android-package" value="com.bluefletch.bluebird.plugin.MagStripeReaderPlugin"/>
+            </feature>
+        </config-file>
+
+        <source-file src="lib/android/com/bluefletch/bluebird/BaseIntentHandler.java" target-dir="src/com/bluefletch/bluebird" />
+        <source-file src="lib/android/com/bluefletch/bluebird/BarcodeScanner.java" target-dir="src/com/bluefletch/bluebird" />
+        <source-file src="lib/android/com/bluefletch/bluebird/MagStripeReader.java" target-dir="src/com/bluefletch/bluebird" />
+        <source-file src="lib/android/com/bluefletch/bluebird/ScanCallback.java" target-dir="src/com/bluefletch/bluebird" />
+        <source-file src="src/android/com/bluefletch/bluebird/plugin/BarcodeScannerPlugin.java" target-dir="src/com/bluefletch/bluebird/plugin" />
+        <source-file src="src/android/com/bluefletch/bluebird/plugin/MagStripeReaderPlugin.java" target-dir="src/com/bluefletch/bluebird/plugin" />
+    </platform>
+
+</plugin>
+
+
