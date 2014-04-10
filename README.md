@@ -1,7 +1,7 @@
 Cordova Bluebird Plugin
 ============
 
-This is a Cordova/Phonegap plugin to interact with the BlueBird ruggedized devices scanners and MSRs.  It has been tested on a  BP30, with soon to be testing on a BP70.
+This is a Cordova/Phonegap plugin to interact with the BlueBird ruggedized devices' Barcode Scanners and Magnetic Stripe Readers.  It has been tested on a  BP30, with soon to be testing on a BP70.
 
 =============
 
