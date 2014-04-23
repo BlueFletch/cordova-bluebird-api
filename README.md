@@ -38,16 +38,16 @@ function handleMagstripeTracks(tracks) {
 	//TODO: handle magstripe
 }
 document.addEventListener("deviceready", function(){ 
-	if (window.barcodeScanner) {
+	if (window.bluebirdBarcodeScanner) {
 		console.log("initializing barcode scanner")
-		window.barcodeScanner.register(loadBarcode, function (argument) {
+		bluebirdBarcodeScanner.register(loadBarcode, function (argument) {
 			console.log("failed to register barcode scanner");
 		});
 	}
 	 
-	if (window.magstripe) {
+	if (window.bluebirdMagstripe) {
 		console.log("initializing magstripe")
-		window.magstripe.register(handleMagstripeTracks, function (argument) {
+		bluebirdMagstripe.register(handleMagstripeTracks, function (argument) {
 				console.log("failed to register for mag stripe reader");
 		});	
 	}
@@ -58,11 +58,11 @@ document.addEventListener("deviceready", function(){
 <h3>More API options:</h3>
 
 <h5>Magstripe:</h5>
-* You need to "activate" the reader, by calling `window.magstripe.read()` when you need to read a credit card (for instance, on a checkout page).  A succcessful read will call your registration callback.
+* You need to "activate" the reader, by calling `bluebirdMagstripe.read()` when you need to read a credit card (for instance, on a checkout page).  A succcessful read will call your registration callback.
 
 <h5>Scanner:</h5>
-* You can wire a soft button to the barcode scanner by calling `window.barcodeScanner.softScanOn()`
-* Turn off the scanner manually using: `window.barcodeScanner.softScanOff()`
+* You can wire a soft button to the barcode scanner by calling `bluebirdBarcodeScanner.softScanOn()`
+* Turn off the scanner manually using: `bluebirdBarcodeScanner.softScanOff()`
 
 ==============
 Copyright 2014 BlueFletch Mobile
