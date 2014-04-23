@@ -109,8 +109,12 @@ public class MagStripeReader extends BaseIntentHandler {
             String track = new String(intent.getByteArrayExtra(EXTRA_TRACK_3)).trim();
             tracks.add(track);
         }
-        if (readCallback != null) readCallback.execute(tracks);
-        else Log.e(TAG, "Read callback not provided to magstripe reader class");
+
+        if (readCallback != null) {
+            readCallback.execute(tracks);
+        } else {
+            Log.e(TAG, "Read callback not provided to magstripe reader class");
+        }
     }
   
     @Override

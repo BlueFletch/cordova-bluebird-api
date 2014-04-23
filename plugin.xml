@@ -6,20 +6,20 @@
     <name>Bluebird</name>
 
 
-    <js-module src="www/barcodescanner.js" name="BarcodeScanner">
-        <clobbers target="barcodeScanner" />
+    <js-module src="www/barcodescanner.js" name="BluebirdBarcodeScanner">
+        <clobbers target="bluebirdBarcodeScanner" />
     </js-module>
-    <js-module src="www/magstripe.js" name="MagStripeReader">
-        <clobbers target="magstripe" />
+    <js-module src="www/magstripe.js" name="BluebirdMagStripeReader">
+        <clobbers target="bluebirdMagstripe" />
     </js-module>
 
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="BarcodeScanner" >
+            <feature name="BluebirdBarcodeScanner" >
                 <param name="android-package" value="com.bluefletch.bluebird.plugin.BarcodeScannerPlugin"/>
             </feature>
-            <feature name="MagStripeReader" >
+            <feature name="BluebirdMagStripeReader" >
                 <param name="android-package" value="com.bluefletch.bluebird.plugin.MagStripeReaderPlugin"/>
             </feature>
         </config-file>

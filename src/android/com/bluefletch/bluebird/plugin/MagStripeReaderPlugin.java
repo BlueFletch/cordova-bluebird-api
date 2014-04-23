@@ -73,7 +73,6 @@ public class MagStripeReaderPlugin extends CordovaPlugin {
         else if ("isReady".equals(action)){
             return reader.isReady();
         }
-
         return true;
     }
     /**

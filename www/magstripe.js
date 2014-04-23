@@ -16,66 +16,54 @@ function MagstripeReader() {
  * Success function should expect a list of tracks to be passed in
  */
 MagstripeReader.prototype.register = function (successCallback, errorCallback) {
-    if (errorCallback == null) {
-        errorCallback = function () {
-        };
-    }
-
-    if (typeof errorCallback != "function") {
+    errorCallback = errorCallback || function () { };
+    
+    if (typeof errorCallback !== "function") {
         console.log("MagstripeReader.register failure: failure parameter not a function");
         return;
     }
 
-    if (typeof successCallback != "function") {
+    if (typeof successCallback !== "function") {
         console.log("MagstripeReader.register failure: success callback parameter must be a function");
         return;
     }
 
-    exec(successCallback, errorCallback, 'MagStripeReader', 'register', []);
+    exec(successCallback, errorCallback, 'BluebirdMagStripeReader', 'register', []);
 };
 /**
  * Turn off scanner
  */
 MagstripeReader.prototype.unregister = function (successCallback, errorCallback) {
-    if (errorCallback == null) {
-        errorCallback = function () {
-        };
-    }
+    errorCallback = errorCallback || function () { };
+    
 
-    if (typeof errorCallback != "function") {
+    if (typeof errorCallback !== "function") {
         console.log("MagstripeReader.unregister failure: failure parameter not a function");
         return;
     }
 
-    if (typeof successCallback != "function") {
+    if (typeof successCallback !== "function") {
         console.log("MagstripeReader.unregister failure: success callback parameter must be a function");
         return;
     }
 
-    exec(successCallback, errorCallback, 'MagStripeReader', 'unregister', []);
+    exec(successCallback, errorCallback, 'BluebirdMagStripeReader', 'unregister', []);
 };
 /**
  * Manually turn on magstripe reader
  */
-MagstripeReader.prototype.read = function (successCallback, errorCallback) {
-    if (errorCallback == null) {
-        errorCallback = function () {
-        };
+MagstripeReader.prototype.read = function () {
+    var successCallback = function(result) {
+        console.log("Magstripe reader begin read.  Result= " + result);
+    }
+    var errorCallback = function(result) {
+        console.log("FAIL: Magstripe reader begin read.  Result=" + result);   
     }
 
-    if (typeof errorCallback != "function") {
-        console.log("MagstripeReader.read failure: failure parameter not a function");
-        return;
-    }
-
-    if (typeof successCallback != "function") {
-        console.log("MagstripeReader.read failure: success callback parameter must be a function");
-        return;
-    }
-
-    exec(successCallback, errorCallback, 'MagStripeReader', 'read', []);
+    exec(successCallback, errorCallback, 'BluebirdMagStripeReader', 'read', []);
 };
 
 
-var MagstripeReader = new MagstripeReader();
-module.exports = MagstripeReader;
+var magstripeReader = new MagstripeReader();
+
+module.exports = magstripeReader;

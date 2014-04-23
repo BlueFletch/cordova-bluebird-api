@@ -16,87 +16,69 @@ function BarcodeScanner() {
  * Success function should expect a barcode to be passed in
  */
 BarcodeScanner.prototype.register = function (successCallback, errorCallback) {
-    if (errorCallback == null) {
-        errorCallback = function () {
-        };
-    }
+    errorCallback = errorCallback || function () { };
 
-    if (typeof errorCallback != "function") {
-        console.log("BarcodeScanner.register failure: failure parameter not a function");
+    if (typeof errorCallback !== "function") {
+        console.log("BarcodeScanner.register failure: failure callback is not a function");
         return;
     }
 
-    if (typeof successCallback != "function") {
+    if (typeof successCallback !== "function") {
         console.log("BarcodeScanner.register failure: success callback parameter must be a function");
         return;
     }
 
-    exec(successCallback, errorCallback, 'BarcodeScanner', 'register', []);
+    exec(successCallback, errorCallback, 'BluebirdBarcodeScanner', 'register', []);
 };
 /**
  * Turn off barcode scanner
  */
 BarcodeScanner.prototype.unregister = function (successCallback, errorCallback) {
-    if (errorCallback == null) {
-        errorCallback = function () {
-        };
-    }
-
-    if (typeof errorCallback != "function") {
+    errorCallback = errorCallback || function () { };
+    
+    if (typeof errorCallback !== "function") {
         console.log("BarcodeScanner.unregister failure: failure parameter not a function");
         return;
     }
 
-    if (typeof successCallback != "function") {
+    if (typeof successCallback !== "function") {
         console.log("BarcodeScanner.unregister failure: success callback parameter must be a function");
         return;
     }
 
-    exec(successCallback, errorCallback, 'BarcodeScanner', 'unregister', []);
+    exec(successCallback, errorCallback, 'BluebirdBarcodeScanner', 'unregister', []);
 };
 /**
  * Manually turn on barcode scanner
  */
-BarcodeScanner.prototype.softScanOn = function (successCallback, errorCallback) {
-    if (errorCallback == null) {
-        errorCallback = function () {
-        };
+BarcodeScanner.prototype.softScanOn = function () {
+    
+    var successCallback = function(result) {
+        console.log("Barcode scanner scanner on result= " + result);
+    }
+    var errorCallback = function(result) {
+        console.log("Barcode scanner scanner on failed " + result);   
     }
 
-    if (typeof errorCallback != "function") {
-        console.log("BarcodeScanner.softScanOn failure: failure parameter not a function");
-        return;
-    }
-
-    if (typeof successCallback != "function") {
-        console.log("BarcodeScanner.softScanOn failure: success callback parameter must be a function");
-        return;
-    }
-
-    exec(successCallback, errorCallback, 'BarcodeScanner', 'softScanOn', []);
+    exec(successCallback, errorCallback, 'BluebirdBarcodeScanner', 'softScanOn', []);
 };
 
 /**
  * Manually turn off barcode scanner
  */
-BarcodeScanner.prototype.softScanOff = function (successCallback, errorCallback) {
-    if (errorCallback == null) {
-        errorCallback = function () {
-        };
+BarcodeScanner.prototype.softScanOff = function () {
+
+    var successCallback = function(result) {
+        console.log("Barcode scanner scanner off result= " + result);
+    }
+    var errorCallback = function(result) {
+        console.log("Barcode scanner scanner off failed " + result);   
     }
 
-    if (typeof errorCallback != "function") {
-        console.log("BarcodeScanner.softScanOff failure: failure parameter not a function");
-        return;
-    }
-
-    if (typeof successCallback != "function") {
-        console.log("BarcodeScanner.softScanOff failure: success callback parameter must be a function");
-        return;
-    }
-
-    exec(successCallback, errorCallback, 'BarcodeScanner', 'softScanOff', []);
+    exec(successCallback, errorCallback, 'BluebirdBarcodeScanner', 'softScanOff', []);
 };
 
+//create instance
 var barcodeScanner = new BarcodeScanner();
+
 module.exports = barcodeScanner;

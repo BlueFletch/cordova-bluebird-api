@@ -6,10 +6,13 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.Log;
 
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
+import java.util.List;
 import java.util.Iterator;
 
 /**
@@ -76,9 +79,13 @@ public abstract class BaseIntentHandler {
     
     public void open(ScanCallback<Boolean> openResult) {
         Log.i(TAG, "Open called");
-        if (hasInitialized) return;
+        if (hasInitialized) {
+            return;
+        }
         synchronized (stateLock) {
-            if (hasInitialized) return;
+            if (hasInitialized) {
+                return;
+            }
 
             Log.i(TAG, "Making open intent registration calls");
 
@@ -108,9 +115,13 @@ public abstract class BaseIntentHandler {
 
     public void close(ScanCallback<Boolean> closeResult) {
         Log.i(TAG, "Close called");
-        if (!hasInitialized) return;
+        if (!hasInitialized) {
+            return;
+        }
         synchronized (stateLock) {
-            if (!hasInitialized) return;
+            if (!hasInitialized) {
+                return;
+            }
 
             Log.i(TAG, "Running close intents");
 
